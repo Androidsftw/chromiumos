@@ -30,4 +30,3 @@ Just copy the installcodecs.sh into your Downloads folder:
 * [Google Play Music](https://chrome.google.com/webstore/detail/google-play-music/icppfcnhkcmnfdhfhphakoifcfokfdhg)
 * [Google Play Books](https://chrome.google.com/webstore/detail/google-play-books/mmimngoggfoobjdlefbcabngfnmieonb)
 * [Google Play Movies](https://chrome.google.com/webstore/detail/google-play-movies/fppdphmgcddhjeddoeghpjefkdlccljb)
-
