@@ -52,7 +52,7 @@ wget "$chromebrewbinutils" -O "$base"/binutils.rb
 binutilsurl=`cat "$base"/binutils.rb | grep "https://" | grep "$(uname -m)" | tr "'" '"' | sed -n '/"/!{/\n/{P;b}};s/"/\n/g;D'`
 wget --progress=dot $binutilsurl -O "$base"/binutils.tgz
 tar -zxvf "$base"/binutils.tgz usr/local/$(uname -m)-pc-linux-gnu/bin/ar
-cp "$base"/usr/local/i686-pc-linux-gnu/bin/ar /usr/bin
+cp "$base"/usr/local/$(uname -m)-pc-linux-gnu/bin/ar /usr/bin
 
 if [ -f /usr/bin/ar ]; then
 	echo "ar found"
@@ -97,11 +97,12 @@ cp -R "$base"/chrome-unstable/opt/google/chrome-unstable/lib /opt/google/chrome
 mkdir -p /opt/google/chrome/pepper
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/libpepflashplayer.so /opt/google/chrome/pepper/ -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/manifest.json /opt/google/chrome/pepper/ -f
-cp "$base"/pepper-flash.info /opt/google/chrome/pepper/ -f
+wget https://raw.githubusercontent.com/sixsixfive/chromiumos/master/pepper-flash.info -O "$base"/pepper-flash.info
+mv "$base"/pepper-flash.info /opt/google/chrome/pepper/ -f
 
-#remove chrome-dir stuff
+#remove chrome-dir
 rm -rf "$base"/chrome-unstable
 
-echo "done cross fingers and reboot"
+echo "done, cross fingers and reboot"
 sleep 5
 echo "PS: type reboot to reboot :P"

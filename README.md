@@ -1,7 +1,7 @@
 This is just a poor script for [ArnoldTheBats](http://arnoldthebat.co.uk/wordpress/chromium-os/) ChromiumOS builds to get flash and Co.
 
 ## Install
-Just copy the installcodecs.sh & pepper-flash.info into your Downloads folder:
+Just copy the installcodecs.sh into your Downloads folder:
 
 * open crosh: **Press CTRL+ALT+T**
 * Enter: **`shell`**
