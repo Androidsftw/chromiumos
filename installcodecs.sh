@@ -51,7 +51,7 @@ echo "downloading binutils" && sleep 5
 wget "$chromebrewbinutils" -O "$base"/binutils.rb
 binutilsurl=`cat "$base"/binutils.rb | grep "https://" | grep "$(uname -m)" | tr "'" '"' | sed -n '/"/!{/\n/{P;b}};s/"/\n/g;D'`
 wget --progress=dot $binutilsurl -O "$base"/binutils.tgz
-tar -zxvf "$base"/binutils.tgz usr/local/i686-pc-linux-gnu/bin/ar
+tar -zxvf "$base"/binutils.tgz usr/local/$(uname -m)-pc-linux-gnu/bin/ar
 cp "$base"/usr/local/i686-pc-linux-gnu/bin/ar /usr/bin
 
 if [ -f /usr/bin/ar ]; then
