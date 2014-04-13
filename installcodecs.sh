@@ -89,10 +89,8 @@ cp "$base"/chrome-unstable/opt/google/chrome-unstable/libppGoogleNaClPluginChrom
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdm.so "/opt/google/chrome" -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdmadapter.so "/opt/google/chrome" -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libpdf.so "/opt/google/chrome" -f
-
 #peerconnect
 cp -R "$base"/chrome-unstable/opt/google/chrome-unstable/lib /opt/google/chrome
-
 #flash
 mkdir -p /opt/google/chrome/pepper
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/libpepflashplayer.so /opt/google/chrome/pepper/ -f
