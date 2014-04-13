@@ -106,3 +106,4 @@ rm -rf "$base"/chrome-unstable
 echo "done, cross fingers and reboot"
 sleep 5
 echo "PS: type reboot to reboot :P"
+
