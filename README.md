@@ -1,15 +1,25 @@
 This is just a poor script for [ArnoldTheBats](http://arnoldthebat.co.uk/wordpress/chromium-os/) ChromiumOS builds to get flash and Co.
 
+maybe it's useful for someone but remember it's your PC not mine ;)
+
 ## Install
 Just copy the installcodecs.sh into your Downloads folder:
 
-* open crosh: **Press CTRL+ALT+T**
+* close all & open crosh: **Press CTRL+ALT+T**
 * Enter: **`shell`**
 * enter the Download directrory: **`cd ~/Downloads`**
 * become root: **`sudo su`**
 * run the script: **`bash installcodecs.sh`**
 * if everything went well: **`reboot`**
-   
+
+there should now Flash/PDF on **Chrome://plugins**
+
+You can also check some stuff here:
+
+* [mp3](https://archive.org/details/testmp3testfile)
+* [video stuff](http://www.quirksmode.org/html5/tests/video.html)
+* [General browser stuff](http://html5test.com/)
+
 #### Default ChromeOS Applications
 * [Calculator](https://chrome.google.com/webstore/detail/calculator/joodangkbfjnajiiifokapkpmhfnpleo)
 * [Google Keep](https://chrome.google.com/webstore/detail/google-keep/hmjkmjkepdijhoojdojkdfohbdgmmhki)
@@ -30,4 +40,9 @@ Just copy the installcodecs.sh into your Downloads folder:
 * [Google Play Music](https://chrome.google.com/webstore/detail/google-play-music/icppfcnhkcmnfdhfhphakoifcfokfdhg)
 * [Google Play Books](https://chrome.google.com/webstore/detail/google-play-books/mmimngoggfoobjdlefbcabngfnmieonb)
 * [Google Play Movies](https://chrome.google.com/webstore/detail/google-play-movies/fppdphmgcddhjeddoeghpjefkdlccljb)
+
+#####Alternatives
+* [zzsethzz](http://zzsethzz.blogspot.co.uk/p/blog-page_2456.html)
+* [dz0ny script](https://gist.github.com/dz0ny/3065781)
+* [rikels script](https://gist.github.com/rikels/4031126)
 

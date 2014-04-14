@@ -87,7 +87,7 @@ echo "Installing codecs" && sleep 5
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libffmpegsumo.so "/opt/google/chrome" -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libpdf.so "/opt/google/chrome" -f
 
-#that stuff wont work even with a info file
+#that stuff won't work even if loaded with an info file
 #cp "$base"/chrome-unstable/opt/google/chrome-unstable/libppGoogleNaClPluginChrome.so "/opt/google/chrome" -f
 #cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdm.so "/opt/google/chrome" -f
 #cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdmadapter.so "/opt/google/chrome" -f
@@ -97,8 +97,8 @@ cp -R "$base"/chrome-unstable/opt/google/chrome-unstable/lib /opt/google/chrome
 mkdir -p /opt/google/chrome/pepper
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/libpepflashplayer.so /opt/google/chrome/pepper/ -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/manifest.json /opt/google/chrome/pepper/ -f
-wget https://raw.githubusercontent.com/sixsixfive/chromiumos/master/pepper-flash.info -O "$base"/pepper-flash.info
-mv "$base"/pepper-flash.info /opt/google/chrome/pepper/ -f
+flashversion=`cat "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/manifest.json | grep version | sed 's/[^0-9.]*//g'`
+echo -e "FILE_NAME=/opt/google/chrome/pepper/libpepflashplayer.so\nPLUGIN_NAME=\"Shockwave Flash\"\nVERSION=\"$flashversion\"\nVISIBLE_VERSION=\"$flashversion\"\nMIME_TYPES=\"application/x-shockwave-flash\"" >/opt/google/chrome/pepper/pepper-flash.info
 
 #remove chrome-dir
 rm -rf "$base"/chrome-unstable
