@@ -102,7 +102,8 @@ echo -e "FILE_NAME=/opt/google/chrome/pepper/libpepflashplayer.so\nPLUGIN_NAME=\
 
 #remove chrome-dir
 rm -rf "$base"/chrome-unstable
-
+#remount the rootfs
+mount -o remount, r /
 echo "done, cross fingers and reboot"
 sleep 5
 echo "PS: type reboot to reboot :P"
