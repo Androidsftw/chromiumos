@@ -85,11 +85,13 @@ fi
 echo "Installing codecs" && sleep 5
 #codecs
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libffmpegsumo.so "/opt/google/chrome" -f
-cp "$base"/chrome-unstable/opt/google/chrome-unstable/libppGoogleNaClPluginChrome.so "/opt/google/chrome" -f
-cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdm.so "/opt/google/chrome" -f
-cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdmadapter.so "/opt/google/chrome" -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libpdf.so "/opt/google/chrome" -f
-#peerconnect
+
+#that stuff wont work even with a info file
+#cp "$base"/chrome-unstable/opt/google/chrome-unstable/libppGoogleNaClPluginChrome.so "/opt/google/chrome" -f
+#cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdm.so "/opt/google/chrome" -f
+#cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdmadapter.so "/opt/google/chrome" -f
+#libs?
 cp -R "$base"/chrome-unstable/opt/google/chrome-unstable/lib /opt/google/chrome
 #flash
 mkdir -p /opt/google/chrome/pepper
