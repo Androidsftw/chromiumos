@@ -7,8 +7,8 @@ Just copy the installcodecs.sh into your Downloads folder:
 
 * close all & open crosh: **Press CTRL+ALT+T**
 * Enter: **`shell`**
-* enter the Download directrory: **`cd ~/Downloads`**
-* become root: **`sudo -i`**
+* Download the script: **`wget http://goo.gl/qIrP1l -O installcodecs.sh`**
+* become root: **`sudo su`**
 * run the script: **`bash installcodecs.sh`**
 * if everything went well: **`reboot`**
 
