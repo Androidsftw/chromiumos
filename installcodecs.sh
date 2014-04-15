@@ -6,17 +6,15 @@ chromebrewbinutils="https://raw.githubusercontent.com/skycocker/chromebrew/maste
 
 #codecs are only available for x86 cpus
 if [ $(uname -m) != "i686" ] && [ $(uname -m) != "x86_64" ]; then
-  echo 'Only Intel x86 compatible CPUs are supported'
-  exit 1;
+    echo 'Only x86 compatible CPUs are supported'
+    exit 1;
 fi
 
 #chrome links
 if [ `uname -m` == 'x86_64' ]; then
-  # 64-bit
-  export CHROME="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
+    CHROME="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
 else
-  # 32-bit
-  export CHROME="https://dl-ssl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
+    CHROME="https://dl-ssl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
 fi
 
 ##checkforoldcrap
@@ -51,8 +49,15 @@ echo "downloading binutils" && sleep 5
 wget "$chromebrewbinutils" -O "$base"/binutils.rb
 binutilsurl=`cat "$base"/binutils.rb | grep "https://" | grep "$(uname -m)" | tr "'" '"' | sed -n '/"/!{/\n/{P;b}};s/"/\n/g;D'`
 wget --progress=dot $binutilsurl -O "$base"/binutils.tgz
-tar -zxvf "$base"/binutils.tgz usr/local/$(uname -m)-pc-linux-gnu/bin/ar
-cp "$base"/usr/local/$(uname -m)-pc-linux-gnu/bin/ar /usr/bin
+
+if [ `uname -m` == 'x86_64' ]; then
+    arpath="usr/local/bin/ar"
+else
+    arpath="usr/local/i686-pc-linux-gnu/bin/ar"
+fi
+
+tar -zxvf "$base"/binutils.tgz "$arpath"
+cp "$base"/"$arpath" /usr/bin
 
 if [ -f /usr/bin/ar ]; then
 	echo "ar found"
@@ -60,6 +65,7 @@ if [ -f /usr/bin/ar ]; then
 	rm -f "$base"/binutils.*
 else
 	echo "couldn't find ar - something went wrong - aborting!"
+    mount -o remount, r /
 	exit 1;
 fi
 
@@ -79,6 +85,7 @@ if [ -f "$base"/data.tar.lzma ]; then
     rm "$base"/data.tar.lzma
 else
 	echo "something went wrong - aborting!"
+    mount -o remount, r /
 	exit 1;
 fi
 
@@ -87,8 +94,7 @@ echo "Installing codecs" && sleep 5
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libffmpegsumo.so "/opt/google/chrome" -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/libpdf.so "/opt/google/chrome" -f
 
-#that stuff won't work even if loaded with an info file
-#cp "$base"/chrome-unstable/opt/google/chrome-unstable/libppGoogleNaClPluginChrome.so "/opt/google/chrome" -f
+#endless loop with an info file http://html5video.org/kaltura-player/kWidget/onPagePlugins/widevineMediaOptimizer/widevineMediaOptimizer.html
 #cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdm.so "/opt/google/chrome" -f
 #cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdmadapter.so "/opt/google/chrome" -f
 #libs?
@@ -98,7 +104,7 @@ mkdir -p /opt/google/chrome/pepper
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/libpepflashplayer.so /opt/google/chrome/pepper/ -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/manifest.json /opt/google/chrome/pepper/ -f
 flashversion=`cat "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/manifest.json | grep version | sed 's/[^0-9.]*//g'`
-echo -e "FILE_NAME=/opt/google/chrome/pepper/libpepflashplayer.so\nPLUGIN_NAME=\"Shockwave Flash\"\nVERSION=\"$flashversion\"\nVISIBLE_VERSION=\"$flashversion\"\nMIME_TYPES=\"application/x-shockwave-flash\"" >/opt/google/chrome/pepper/pepper-flash.info
+echo -e "FILE_NAME=/opt/google/chrome/pepper/libpepflashplayer.so\nPLUGIN_NAME=\"Shockwave Flash\"\nVERSION=\"$flashversion\"\nVISIBLE_VERSION=\"$flashversion\"\nMIME_TYPES=\"application/x-shockwave-flash\"" >>/opt/google/chrome/pepper/pepper-flash.info
 
 #remove chrome-dir
 rm -rf "$base"/chrome-unstable
