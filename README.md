@@ -8,13 +8,13 @@ Just copy the installcodecs.sh into your Downloads folder:
 * close all & open crosh: **Press CTRL+ALT+T**
 * Enter: **`shell`**
 * enter the Download directrory: **`cd ~/Downloads`**
-* become root: **`sudo su`**
+* become root: **`sudo -i`**
 * run the script: **`bash installcodecs.sh`**
 * if everything went well: **`reboot`**
 
-there should now Flash/PDF on **Chrome://plugins**
+there should now a Flash/PDF pdf plugin listed on **Chrome://plugins**
 
-You can also check some stuff here:
+####Some file examples:
 
 * [mp3](https://archive.org/details/testmp3testfile)
 * [video stuff](http://www.quirksmode.org/html5/tests/video.html)
