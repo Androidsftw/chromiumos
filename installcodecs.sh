@@ -6,15 +6,15 @@ chromebrewbinutils="https://raw.githubusercontent.com/skycocker/chromebrew/maste
 
 #codecs are only available for x86 cpus
 if [ $(uname -m) != "i686" ] && [ $(uname -m) != "x86_64" ]; then
-    echo 'Only x86 compatible CPUs are supported'
-    exit 1;
+echo 'Only x86 compatible CPUs are supported'
+	exit 1;
 fi
 
 #chrome links
 if [ `uname -m` == 'x86_64' ]; then
-    CHROME="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
+	CHROME="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
 else
-    CHROME="https://dl-ssl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
+	CHROME="https://dl-ssl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
 fi
 
 ##checkforoldcrap
@@ -51,9 +51,9 @@ binutilsurl=`cat "$base"/binutils.rb | grep "https://" | grep "$(uname -m)" | tr
 wget --progress=dot $binutilsurl -O "$base"/binutils.tgz
 
 if [ `uname -m` == 'x86_64' ]; then
-    arpath="usr/local/bin/ar"
+	arpath="usr/local/bin/ar"
 else
-    arpath="usr/local/i686-pc-linux-gnu/bin/ar"
+	arpath="usr/local/i686-pc-linux-gnu/bin/ar"
 fi
 
 tar -zxvf "$base"/binutils.tgz "$arpath"
@@ -65,7 +65,7 @@ if [ -f /usr/bin/ar ]; then
 	rm -f "$base"/binutils.*
 else
 	echo "couldn't find ar - something went wrong - aborting!"
-    mount -o remount, r /
+	mount -o remount, r /
 	exit 1;
 fi
 
@@ -81,11 +81,11 @@ tar -xvf "$base"/data.tar.lzma -C "$base"/chrome-unstable
 
 if [ -f "$base"/data.tar.lzma ]; then
 	echo "success" && sleep 5
-    rm "$base"/chrome-bin.deb
-    rm "$base"/data.tar.lzma
+	rm "$base"/chrome-bin.deb
+	rm "$base"/data.tar.lzma
 else
 	echo "something went wrong - aborting!"
-    mount -o remount, r /
+	mount -o remount, r /
 	exit 1;
 fi
 
