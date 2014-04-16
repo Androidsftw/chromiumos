@@ -21,6 +21,14 @@ there should now a Flash/PDF pdf plugin listed on **Chrome://plugins**
 * [video stuff](http://www.quirksmode.org/html5/tests/video.html)
 * [General browser stuff](http://html5test.com/)
 
+#####Alternatives
+* [zzsethzz](http://zzsethzz.blogspot.co.uk/p/blog-page_2456.html)
+* [dz0ny script](https://gist.github.com/dz0ny/3065781)
+* [rikels script](https://gist.github.com/rikels/4031126)
+
+#####Some other cool stuff
+* [Chromebrew](https://github.com/skycocker/chromebrew)
+
 #### Default ChromeOS Applications
 * [Calculator](https://chrome.google.com/webstore/detail/calculator/joodangkbfjnajiiifokapkpmhfnpleo)
 * [Google Keep](https://chrome.google.com/webstore/detail/google-keep/hmjkmjkepdijhoojdojkdfohbdgmmhki)
@@ -41,9 +49,3 @@ there should now a Flash/PDF pdf plugin listed on **Chrome://plugins**
 * [Google Play Music](https://chrome.google.com/webstore/detail/google-play-music/icppfcnhkcmnfdhfhphakoifcfokfdhg)
 * [Google Play Books](https://chrome.google.com/webstore/detail/google-play-books/mmimngoggfoobjdlefbcabngfnmieonb)
 * [Google Play Movies](https://chrome.google.com/webstore/detail/google-play-movies/fppdphmgcddhjeddoeghpjefkdlccljb)
-
-#####Alternatives
-* [zzsethzz](http://zzsethzz.blogspot.co.uk/p/blog-page_2456.html)
-* [dz0ny script](https://gist.github.com/dz0ny/3065781)
-* [rikels script](https://gist.github.com/rikels/4031126)
-
