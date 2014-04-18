@@ -3,7 +3,6 @@ This is just a poor script for [ArnoldTheBats](http://arnoldthebat.co.uk/wordpre
 maybe it's useful for someone but remember it's your PC not mine ;)
 
 ## Install
-Just copy the installcodecs.sh into your Downloads folder:
 
 * close all & open crosh: **Press CTRL+ALT+T**
 * Enter: **`shell`**
@@ -13,12 +12,12 @@ Just copy the installcodecs.sh into your Downloads folder:
 * Run the script: **`bash installcodecs.sh`**
 * If everything went well: **`reboot`**
 
-there should now a Flash/PDF pdf plugin listed on **Chrome://plugins**
+there should now a Flash/PDF plugin listed on **Chrome://plugins**
 
 ####Some file examples:
 
-* [mp3](https://archive.org/details/testmp3testfile)
-* [video stuff](http://www.quirksmode.org/html5/tests/video.html)
+* [Mp3](https://archive.org/details/testmp3testfile)
+* [Video stuff](http://www.quirksmode.org/html5/tests/video.html)
 * [General browser stuff](http://html5test.com/)
 
 #####Alternatives
