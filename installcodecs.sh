@@ -1,5 +1,5 @@
 #!/bin/bash
-#based on https://wiki.archlinux.org/index.php/Chromium
+#based on https://github.com/skycocker/chromebrew
 #based on https://gist.github.com/dz0ny/3065781
 base="$(dirname "$(readlink -f "${0}")")"
 chromebrewbinutils="https://raw.githubusercontent.com/skycocker/chromebrew/master/packages/binutils.rb"
@@ -41,7 +41,7 @@ else
 fi
 
 #remount the root partition
-echo "remount rootfs" && sleep 5
+echo "remounting rootfs" && sleep 5
 mount -o remount, rw /
 
 #gettingbinutils
@@ -104,7 +104,7 @@ mkdir -p /opt/google/chrome/pepper
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/libpepflashplayer.so /opt/google/chrome/pepper/ -f
 cp "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/manifest.json /opt/google/chrome/pepper/ -f
 flashversion=`cat "$base"/chrome-unstable/opt/google/chrome-unstable/PepperFlash/manifest.json | grep version | sed 's/[^0-9.]*//g'`
-echo -e "FILE_NAME=/opt/google/chrome/pepper/libpepflashplayer.so\nPLUGIN_NAME=\"Shockwave Flash\"\nVERSION=\"$flashversion\"\nVISIBLE_VERSION=\"$flashversion\"\nMIME_TYPES=\"application/x-shockwave-flash\"" >>/opt/google/chrome/pepper/pepper-flash.info
+echo -e "FILE_NAME=/opt/google/chrome/pepper/libpepflashplayer.so\nPLUGIN_NAME=\"Shockwave Flash\"\nVERSION=\"$flashversion\"\nVISIBLE_VERSION=\"$flashversion\"\nMIME_TYPES=\"application/x-shockwave-flash\"" >/opt/google/chrome/pepper/pepper-flash.info
 
 #remove chrome-dir
 rm -rf "$base"/chrome-unstable
