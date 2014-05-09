@@ -172,4 +172,4 @@ else
 fi
 echo "done, rebooting in 5 seconds"
 sleep 5
-#reboot
+reboot
