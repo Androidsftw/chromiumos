@@ -1,4 +1,4 @@
-This is just a poor script for [ArnoldTheBats](http://arnoldthebat.co.uk/wordpress/chromium-os/) ChromiumOS builds to get flash and Co.
+This is just a poor script for [ArnoldTheBats](http://arnoldthebat.co.uk/wordpress/chromium-os/) ChromiumOS builds (amd64/x86) to get flash and Co.
 
 maybe it's useful for someone but remember it's your PC not mine ;)
 
