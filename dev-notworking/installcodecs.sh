@@ -4,16 +4,16 @@ base="$(dirname "$(readlink -f "${0}")")"
 #codecs are only available for x86 cpus
 if [ `uname -m` == 'x86_64' ]; then
 	chromeurl="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
-	gtalkurl="https://drive.google.com/file/d/0B_2_dsXrefR-UDlXSUpIdTZUUE0/edit?usp=sharing"
-	netflixurl="https://drive.google.com/file/d/0B_2_dsXrefR-S2cxYVRTdEpfQUE/edit?usp=sharing"
+	gtalkurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/google-talk-pepper-amd64.txz"
+	netflixurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/netflixhelper-amd64.txz"
 	arurl="https://github.com/sixsixfive/chromiumos/raw/master/dev-notworking/ar-binutils-2.23.2-chromebrew/amd64/ar"
-elif [ $(uname -m) != "i686" ]
-	cromeurl="https://dl-ssl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
-	gtalkurl=""
-	netflixurl=""
-	arurl="https://github.com/sixsixfive/chromiumos/raw/master/dev-notworking/ar-binutils-2.23.2-chromebrew/x86/ar"
+#elif [ $(uname -m) != "i686" ]; then
+#	cromeurl="https://dl-ssl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
+#	gtalkurl=""
+#	netflixurl=""
+#	arurl="https://github.com/sixsixfive/chromiumos/raw/master/dev-notworking/ar-binutils-2.23.2-chromebrew/x86/ar"
 else
-	echo 'Only x86 compatible CPUs are supported'
+	echo 'Only amd64 compatible CPUs are supported'
 	exit 1;
 fi
 
@@ -58,20 +58,20 @@ else
 fi
 
 #download peppertalk
-if [ -f "$base"/.codectmp/google-talk-pepper.tbz ]; then
+if [ -f "$base"/.codectmp/google-talk-pepper.txz ]; then
 	echo "gtalk found"
 	sleep 3
 else
 	echo "downloading peppertalk"
 	sleep 3
-	wget --progress=dot "$gtalkurl" -O "$base"/.codectmp/google-talk-pepper.tbz 2>&1 | grep --line-buffered "%"
+	wget --progress=dot "$gtalkurl" -O "$base"/.codectmp/google-talk-pepper.txz 2>&1 | grep --line-buffered "%"
 fi
 
-if [ -f "$base"/.codectmp/google-talk-pepper.tbz ]; then
+if [ -f "$base"/.codectmp/google-talk-pepper.txz ]; then
 	echo "extracting peppertalk"
 	sleep 3
 	cd /
-	tar xfvj "$base"/.codectmp/google-talk-pepper.tbz
+	tar xfvJ "$base"/.codectmp/google-talk-pepper.txz
 	if [-f /opt/google/talkplugin/GoogleTalkPlugin]; then
 		echo "GTalkPlugin installed"
 	else
@@ -82,20 +82,20 @@ else
 fi
 
 #download netflix
-if [ -f "$base"/.codectmp/netflixhelper.tbz ]; then
+if [ -f "$base"/.codectmp/netflixhelper.txz ]; then
 	echo "netflix found"
 	sleep 3
 else
 	echo "downloading netflixplugin"
 	sleep 3
-	wget --progress=dot "$netflixurl" -O "$base"/.codectmp/netflixhelper.tbz 2>&1 | grep --line-buffered "%"
+	wget --progress=dot "$netflixurl" -O "$base"/.codectmp/netflixhelper.txz 2>&1 | grep --line-buffered "%"
 fi
 
-if [ -f "$base"/.codectmp/netflixhelper.tbz ]; then
+if [ -f "$base"/.codectmp/netflixhelper.txz ]; then
 	echo "extracting netflixplugin"
 	sleep 3
 	cd /
-	tar xfvj "$base"/.codectmp/netflixhelper.tbz
+	tar xfvJ "$base"/.codectmp/netflixhelper.txz
 	if [-f /opt/google/chrome/pepper/libnetflixhelper.so]; then
 		echo "Netflix Plugin installed"
 	else
