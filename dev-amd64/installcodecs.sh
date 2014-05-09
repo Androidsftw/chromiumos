@@ -23,7 +23,8 @@ sleep 3
 mount -o remount, rw /
 
 #remove that ugly string at the login screen
-sed -i '/CHROMEOS_RELEASE_DESCRIPTION/d' /etc/lsb-release
+#sed -i '/CHROMEOS_RELEASE_DESCRIPTION/d' /etc/lsb-release
+mv /etc/lsb-release /etc/lsb-release.bak
 
 #creating the pepper dir and a tmpdir
 mkdir -p /opt/google/chrome/pepper
@@ -72,7 +73,7 @@ if [ -f "$base"/.codectmp/google-talk-pepper.txz ]; then
 	sleep 3
 	cd /
 	tar xfvJ "$base"/.codectmp/google-talk-pepper.txz
-	if [-f /opt/google/talkplugin/GoogleTalkPlugin]; then
+	if [ -f /opt/google/talkplugin/GoogleTalkPlugin ]; then
 		echo "GTalkPlugin installed"
 	else
 		echo "FAIL (-_-)"
@@ -109,6 +110,8 @@ fi
 echo "Downloading the adobe pepper plugins"
 sleep 3
 wget --progress=dot "$chromeurl" -O "$base"/.codectmp/chrome-bin.deb 2>&1 | grep --line-buffered "%"
+
+rm -rf "$base"/.codectmp/chrome-unstable
 mkdir "$base"/.codectmp/chrome-unstable
 cd "$base"/.codectmp
 /usr/bin/ar -p "$base"/.codectmp/chrome-bin.deb data.tar.lzma >> "$base"/.codectmp/data.tar.lzma
@@ -147,22 +150,22 @@ rm -rf "$base"/.codectmp/chrome-unstable
 mount -o remount, r /
 
 #installation status
-if [-f /opt/google/talkplugin/GoogleTalkPlugin]; then
+if [ -f /opt/google/talkplugin/GoogleTalkPlugin ]; then
 		echo "GTalkPlugin		OK"
 else
 		echo "GTalkPlugin		FAILED"
 fi
-if [-f /opt/google/chrome/pepper/libnetflixhelper.so]; then
+if [ -f /opt/google/chrome/pepper/libnetflixhelper.so ]; then
 		echo "NetflixPlugin		OK"
 else
 		echo "NetflixPlugin		FAILED"
 fi
-if [-f /opt/google/chrome/pepper/libpepflashplayer.so]; then
+if [ -f /opt/google/chrome/pepper/libpepflashplayer.so ]; then
 		echo "FlashPlugin		OK"
 else
 		echo "FlashPlugin		FAILED"
 fi
-if [-f /opt/google/chrome-unstable/libpdf.so]; then
+if [ -f /opt/google/chrome-unstable/libpdf.so ]; then
 		echo "PDFPlugin			OK"
 else
 		echo "PDFPlugin			FAILED"
