@@ -165,7 +165,7 @@ if [ -f /opt/google/chrome/pepper/libpepflashplayer.so ]; then
 else
 		echo "FlashPlugin		FAILED"
 fi
-if [ -f /opt/google/chrome-unstable/libpdf.so ]; then
+if [ -f /opt/google/chrome/libpdf.so ]; then
 		echo "PDFPlugin			OK"
 else
 		echo "PDFPlugin			FAILED"
