@@ -6,7 +6,7 @@ if [ `uname -m` == 'x86_64' ]; then
 	chromeurl="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
 	gtalkurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/google-talk-pepper-amd64.txz"
 	netflixurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/netflixhelper-amd64.txz"
-	arurl="https://github.com/sixsixfive/chromiumos/raw/master/dev-notworking/ar-binutils-2.23.2-chromebrew/amd64/ar"
+	arurl="https://github.com/sixsixfive/chromiumos/raw/master/dev-amd64/ar-binutils-2.23.2-chromebrew/amd64/ar"
 #elif [ $(uname -m) != "i686" ]; then
 #	cromeurl="https://dl-ssl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
 #	gtalkurl=""
@@ -97,7 +97,7 @@ if [ -f "$base"/.codectmp/netflixhelper.txz ]; then
 	sleep 3
 	cd /
 	tar xfvJ "$base"/.codectmp/netflixhelper.txz
-	if [-f /opt/google/chrome/pepper/libnetflixhelper.so]; then
+	if [ -f /opt/google/chrome/pepper/libnetflixhelper.so ]; then
 		echo "Netflix Plugin installed"
 	else
 		echo "FAIL (-_-)"

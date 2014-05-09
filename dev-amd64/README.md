@@ -5,6 +5,6 @@ This installs even more plugins(currently amd64 only!).
 * close all & open crosh: **Press CTRL+ALT+T**
 * Enter: **`shell`**
 * Navigate to the Downloads dir: **`cd ~/Downloads`**
-* Download the script: **`wget http://goo.gl/NBZtSU -O installcodecs.sh`**
+* Download the script: **`wget http://goo.gl/TQWecr -O installcodecs.sh`**
 * Become root: **`sudo su`**
 * Run the script: **`bash installcodecs.sh`**
