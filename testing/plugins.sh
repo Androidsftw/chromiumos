@@ -36,14 +36,14 @@ if [ -f "$base"/.codectmp/ar.txz ]; then
 else
 	echo "downloading GNU ar"
 	sleep 3
-	wget --progress=dot "$arurl" -O "$base"/.codectmp/ar.txz 2>&1 | grep --line-buffered "%"
+	wget --progress=dot "$arurl" -O "$base"/.codectmp/ar.txz 2>&1 | grep --line-buffered "%" | sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
 fi
 
 if [ -f "$base"/.codectmp/ar.txz ]; then
 	echo "installing GNU ar"
 	sleep 3
 	cd /
-	tar xfvJ "$base"/.codectmp/ar.txz
+	tar xfJ "$base"/.codectmp/ar.txz
 	chmod +x /usr/bin/ar
 	if [ -f /usr/bin/ar ]; then
 		echo "GNU ar installed"
@@ -65,14 +65,14 @@ if [ -f "$base"/.codectmp/google-talk-pepper.txz ]; then
 else
 	echo "downloading peppertalk"
 	sleep 3
-	wget --progress=dot "$gtalkurl" -O "$base"/.codectmp/google-talk-pepper.txz 2>&1 | grep --line-buffered "%"
+	wget --progress=dot "$gtalkurl" -O "$base"/.codectmp/google-talk-pepper.txz 2>&1 | grep --line-buffered "%" | sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
 fi
 
 if [ -f "$base"/.codectmp/google-talk-pepper.txz ]; then
 	echo "extracting peppertalk"
 	sleep 3
 	cd /
-	tar xfvJ "$base"/.codectmp/google-talk-pepper.txz
+	tar xfJ "$base"/.codectmp/google-talk-pepper.txz
 	if [ -f /opt/google/talkplugin/GoogleTalkPlugin ]; then
 		echo "GTalkPlugin installed"
 	else
@@ -89,14 +89,14 @@ if [ -f "$base"/.codectmp/netflixhelper.txz ]; then
 else
 	echo "downloading netflixplugin"
 	sleep 3
-	wget --progress=dot "$netflixurl" -O "$base"/.codectmp/netflixhelper.txz 2>&1 | grep --line-buffered "%"
+	wget --progress=dot "$netflixurl" -O "$base"/.codectmp/netflixhelper.txz 2>&1 | grep --line-buffered "%" | sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
 fi
 
 if [ -f "$base"/.codectmp/netflixhelper.txz ]; then
 	echo "extracting netflixplugin"
 	sleep 3
 	cd /
-	tar xfvJ "$base"/.codectmp/netflixhelper.txz
+	tar xfJ "$base"/.codectmp/netflixhelper.txz
 	if [ -f /opt/google/chrome/pepper/libnetflixhelper.so ]; then
 		echo "Netflix Plugin installed"
 	else
@@ -109,13 +109,13 @@ fi
 #adobe stuff
 echo "Downloading the adobe pepper plugins"
 sleep 3
-wget --progress=dot "$chromeurl" -O "$base"/.codectmp/chrome-bin.deb 2>&1 | grep --line-buffered "%"
+wget --progress=dot "$chromeurl" -O "$base"/.codectmp/chrome-bin.deb 2>&1 | grep --line-buffered "%" | sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
 
 rm -rf "$base"/.codectmp/chrome-unstable
 mkdir "$base"/.codectmp/chrome-unstable
 cd "$base"/.codectmp
 /usr/bin/ar -p "$base"/.codectmp/chrome-bin.deb data.tar.lzma >> "$base"/.codectmp/data.tar.lzma
-tar -xvf "$base"/.codectmp/data.tar.lzma -C "$base"/.codectmp/chrome-unstable
+tar -xf "$base"/.codectmp/data.tar.lzma -C "$base"/.codectmp/chrome-unstable
 
 if [ -f "$base"/.codectmp/data.tar.lzma ]; then
 	echo "download & extraction complete"
