@@ -53,7 +53,9 @@ if [ -f "$base"/.codectmp/ar.txz ]; then
 		exit 1;
 	fi
 else
-	echo "couldn't download peppertalk (-_-)"
+	echo "couldn't download ar (-_-)"
+	mount -o remount, r /
+	exit 1;
 fi
 
 #download peppertalk
