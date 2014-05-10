@@ -36,7 +36,7 @@ if [ -f "$base"/.codectmp/ar.txz ]; then
 else
 	echo "downloading GNU ar"
 	sleep 3
-	wget --progress=dot "$arurl" -O "$base"/.codectmp/ar.txz 2>&1 | grep --line-buffered "%" | sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
+	wget --progress=dot "$arurl" -O "$base"/.codectmp/ar.txz 2>&1 | grep --line-buffered "%"
 fi
 
 if [ -f "$base"/.codectmp/ar.txz ]; then
@@ -65,7 +65,7 @@ if [ -f "$base"/.codectmp/google-talk-pepper.txz ]; then
 else
 	echo "downloading peppertalk"
 	sleep 3
-	wget --progress=dot "$gtalkurl" -O "$base"/.codectmp/google-talk-pepper.txz 2>&1 | grep --line-buffered "%" | sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
+	wget --progress=dot "$gtalkurl" -O "$base"/.codectmp/google-talk-pepper.txz 2>&1 | grep --line-buffered "%"
 fi
 
 if [ -f "$base"/.codectmp/google-talk-pepper.txz ]; then
@@ -89,7 +89,7 @@ if [ -f "$base"/.codectmp/netflixhelper.txz ]; then
 else
 	echo "downloading netflixplugin"
 	sleep 3
-	wget --progress=dot "$netflixurl" -O "$base"/.codectmp/netflixhelper.txz 2>&1 | grep --line-buffered "%" | sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
+	wget --progress=dot "$netflixurl" -O "$base"/.codectmp/netflixhelper.txz 2>&1 | grep --line-buffered "%"
 fi
 
 if [ -f "$base"/.codectmp/netflixhelper.txz ]; then
@@ -109,7 +109,7 @@ fi
 #adobe stuff
 echo "Downloading the adobe pepper plugins"
 sleep 3
-wget --progress=dot "$chromeurl" -O "$base"/.codectmp/chrome-bin.deb 2>&1 | grep --line-buffered "%" | sed -u -e "s,\.,,g" | awk '{printf("\b\b\b\b%4s", $2)}'
+wget --progress=dot "$chromeurl" -O "$base"/.codectmp/chrome-bin.deb 2>&1 | grep --line-buffered "%"
 
 rm -rf "$base"/.codectmp/chrome-unstable
 mkdir "$base"/.codectmp/chrome-unstable
@@ -128,7 +128,7 @@ else
 	exit 1;
 fi
 
-echo "Installing Adobe Plugins & MP3 Codec" && sleep 5
+echo "Installing Adobe Plugins & MP3 Codec" && sleep 3
 #codecs
 cp "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/libffmpegsumo.so "/opt/google/chrome" -f
 cp "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/libpdf.so "/opt/google/chrome" -f
