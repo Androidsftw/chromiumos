@@ -1,17 +1,12 @@
 #!/bin/bash
 base="$(dirname "$(readlink -f "${0}")")"
 
-#codecs are only available for x86 cpus
+#amd64 only x86 might come later
 if [ `uname -m` == 'x86_64' ]; then
 	chromeurl="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
 	gtalkurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/google-talk-pepper-amd64.txz"
 	netflixurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/netflixhelper-amd64.txz"
 	arurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/ar-amd64.txz"
-#elif [ $(uname -m) != "i686" ]; then
-#	cromeurl="https://dl-ssl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
-#	gtalkurl=""
-#	netflixurl=""
-#	arurl="https://github.com/sixsixfive/chromiumos/raw/master/dev-notworking/ar-binutils-2.23.2-chromebrew/x86/ar"
 else
 	echo 'Only amd64 compatible CPUs are supported'
 	exit 1;
@@ -21,6 +16,9 @@ fi
 echo "remounting rootfs"
 sleep 3
 mount -o remount, rw /
+
+#updates
+sed -i 's/http:\/\/chromebld01.test.private/http:\/\/chromebld.arnoldthebat.co.uk/g' /etc/lsb-release
 
 #remove that ugly string at the login screen
 #sed -i '/CHROMEOS_RELEASE_DESCRIPTION/d' /etc/lsb-release
@@ -128,14 +126,11 @@ else
 	exit 1;
 fi
 
-echo "Installing Adobe Plugins & MP3 Codec" && sleep 3
+echo "Installing Adobe Plugins & MP3 Codec"
+sleep 3
 #codecs
 cp "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/libffmpegsumo.so "/opt/google/chrome" -f
 cp "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/libpdf.so "/opt/google/chrome" -f
-
-#endless loop with an info file http://html5video.org/kaltura-player/kWidget/onPagePlugins/widevineMediaOptimizer/widevineMediaOptimizer.html
-#cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdm.so "/opt/google/chrome" -f
-#cp "$base"/chrome-unstable/opt/google/chrome-unstable/libwidevinecdmadapter.so "/opt/google/chrome" -f
 #libs?
 cp -R "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/lib /opt/google/chrome
 #flash
@@ -167,6 +162,7 @@ if [ -f /opt/google/chrome/libpdf.so ]; then
 		echo "PDFPlugin			OK"
 		echo "enabling Chrome Print preview"
 		sed -i 's/\${DEVELOPER_MODE_FLAG}/\${DEVELOPER_MODE_FLAG} \\/g' /sbin/session_manager_setup.sh
+		#http://peter.sh/experiments/chromium-command-line-switches/
 		echo -e "\t\t\t--enable-print-preview" >>/sbin/session_manager_setup.sh
 else
 		echo "PDFPlugin			FAILED"
