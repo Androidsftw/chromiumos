@@ -1,4 +1,12 @@
-This installs even more plugins (currently amd64 builds only!).
+This installs even more plugins (currently [amd64](http://en.wikipedia.org/wiki/X86-64) builds only!).
+
+####Plugins included
+
+* MP3 Codec
+* Adobe Flash
+* Adobe PDF
+* Google Talk/Hangouts(you still need to install the Hangouts WebStore app)
+* Netflix Plugin
 
 ## Install
 
