@@ -23,7 +23,7 @@ sleep 3
 mount -o remount, rw /
 
 #remove that ugly string at the login screen
-sed -i '/CHROMEOS_RELEASE_DESCRIPTION/d' /etc/lsb-release
+#sed -i '/CHROMEOS_RELEASE_DESCRIPTION/d' /etc/lsb-release
 
 #creating the pepper dir and a tmpdir
 mkdir -p /opt/google/chrome/pepper
