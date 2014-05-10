@@ -146,8 +146,6 @@ echo -e "FILE_NAME=/opt/google/chrome/pepper/libpepflashplayer.so\nPLUGIN_NAME=\
 
 #remove chrome-dir
 rm -rf "$base"/.codectmp/chrome-unstable
-#remount the rootfs
-mount -o remount, r /
 
 #installation status
 if [ -f /opt/google/talkplugin/GoogleTalkPlugin ]; then
@@ -167,9 +165,14 @@ else
 fi
 if [ -f /opt/google/chrome/libpdf.so ]; then
 		echo "PDFPlugin			OK"
+		echo "enabling Chrome Print preview"
+		sed -i 's/\${DEVELOPER_MODE_FLAG}/\${DEVELOPER_MODE_FLAG} \\/g' /sbin/session_manager_setup.sh
+		echo -e "\t\t\t--enable-print-preview" >>/sbin/session_manager_setup.sh
 else
 		echo "PDFPlugin			FAILED"
 fi
+#remount the rootfs
+mount -o remount, r /
 echo "done, rebooting in 5 seconds"
 sleep 5
 reboot
