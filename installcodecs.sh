@@ -5,7 +5,7 @@ base="$(dirname "$(readlink -f "${0}")")"
 if [ `uname -m` == 'x86_64' ]; then
 	chromeurl="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
 	arurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/ar-amd64.txz"
-elif [ $(uname -m) != "i686" ]; then
+elif [ `uname -m` == 'i686' ]; then
 	chromeurl="https://dl.google.com/linux/direct/google-chrome-unstable_current_i386.deb"
 	arurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/ar-x86.txz"
 else
