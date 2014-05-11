@@ -48,3 +48,7 @@ there should now a Flash/PDF plugin listed on **Chrome://plugins**
 * [Google Play Music](https://chrome.google.com/webstore/detail/google-play-music/icppfcnhkcmnfdhfhphakoifcfokfdhg)
 * [Google Play Books](https://chrome.google.com/webstore/detail/google-play-books/mmimngoggfoobjdlefbcabngfnmieonb)
 * [Google Play Movies](https://chrome.google.com/webstore/detail/google-play-movies/fppdphmgcddhjeddoeghpjefkdlccljb)
+
+##### Other useful ChromiumOS Applications
+* [Text](https://chrome.google.com/webstore/detail/text/mmfbcljfglbokpmkimbfghdkjmjhdgbg)
+* [Set Wallpaper](https://chrome.google.com/webstore/detail/set-image-as-wallpaper-in/lbockjjhgkknbepadjhfcilapfmebckf)
