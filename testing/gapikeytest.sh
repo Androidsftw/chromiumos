@@ -167,7 +167,7 @@ fi
 #googlapikeytest needed to get drive working
 sleep 5
 read -p "To use GDrive you need an API-Key (Press Y to set, anything else to skip)" -n 1 -r
-echo "\nHow to get keys? http://goo.gl/sNpbyF"
+echo "\nHow to get keys? http://www.chromium.org/developers/how-tos/api-keys"
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	sed -i '/GOOGLE_API_KEY/d' /sbin/session_manager_setup.sh
