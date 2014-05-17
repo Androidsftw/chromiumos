@@ -1,7 +1,7 @@
 #!/bin/bash
 base="$(dirname "$(readlink -f "${0}")")"
 
-#amd64 only x86 might come later
+#amd64 only, srsly every CPU since 2008(Atom Diamondville) supports 64Bit :P
 if [ `uname -m` == 'x86_64' ]; then
 	chromeurl="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
 	gtalkurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/google-talk-pepper-amd64.txz"
@@ -167,7 +167,7 @@ fi
 #googlapikeytest needed to get drive working
 sleep 5
 read -p "To use GDrive you need an API-Key (Press Y to set, anything else to skip)" -n 1 -r
-echo "How to get keys? http://goo.gl/sNpbyF"
+echo "\nHow to get keys? http://goo.gl/sNpbyF"
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	sed -i '/GOOGLE_API_KEY/d' /sbin/session_manager_setup.sh
@@ -188,11 +188,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	else
 		read -p "Please enter your Client secret(for native applications):" -r gclientsecret
 	fi
-sed -i '2iexport GOOGLE_API_KEY=$gapikey' /sbin/session_manager.sh
-sed -i '3iexport GOOGLE_API_KEY=$gclientid' /sbin/session_manager.sh
-sed -i '4iexport GOOGLE_API_KEY=$gclientsecret' /sbin/session_manager.sh
+sed -i "2iexport GOOGLE_API_KEY=$gapikey" /sbin/session_manager_setup.sh
+sed -i "3iexport GOOGLE_DEFAULT_CLIENT_ID=$gclientid" /sbin/session_manager_setup.sh
+sed -i "4iexport GOOGLE_DEFAULT_CLIENT_SECRET=$gclientsecret" /sbin/session_manager_setup.sh
 fi
-chmod +x /etc/profile.d/googleapikeys.sh
 #remount the rootfs
 mount -o remount, r /
 echo "done, rebooting in 5 seconds"
