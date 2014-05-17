@@ -33,16 +33,19 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 		gapikey=`cat "$base"/.codectmp/gapikey`
 	else
 		read -p "Please enter your API key(for browser applications):" -r gapikey
+		echo "$gapikey" > "$base"/.codectmp/gclientid
 	fi
 	if [ -f "$base"/.codectmp/gclientid ]; then
-		gapikey=`cat "$base"/.codectmp/gclientid`
+		gclienid=`cat "$base"/.codectmp/gclientid`
 	else
 		read -p "Please enter your Client ID(for native applications):" -r gclientid
+		echo "$gclientid" > "$base"/.codectmp/gclientid
 	fi
 	if [ -f "$base"/.codectmp/gclientsecret ]; then
-		gapikey=`cat "$base"/.codectmp/gclientsecret`
+		gclientsecret=`cat "$base"/.codectmp/gclientsecret`
 	else
 		read -p "Please enter your Client secret(for native applications):" -r gclientsecret
+		echo "$gclientsecret" > "$base"/.codectmp/gclientsecret
 	fi
 sed -i "2iexport GOOGLE_API_KEY=$gapikey" /sbin/session_manager_setup.sh
 sed -i "3iexport GOOGLE_DEFAULT_CLIENT_ID=$gclientid" /sbin/session_manager_setup.sh
