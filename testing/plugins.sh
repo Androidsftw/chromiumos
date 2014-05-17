@@ -33,7 +33,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 		gapikey=`cat "$base"/.codectmp/gapikey`
 	else
 		read -p "Please enter your API key(for browser applications):" -r gapikey
-		echo "$gapikey" > "$base"/.codectmp/gclientid
+		echo "$gapikey" > "$base"/.codectmp/gapikey
 	fi
 	if [ -f "$base"/.codectmp/gclientid ]; then
 		gclienid=`cat "$base"/.codectmp/gclientid`
