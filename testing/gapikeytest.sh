@@ -23,8 +23,8 @@ mkdir -p "$base"/.codectmp
 
 #gapikeys to get drive working
 read -p "To use GDrive you need an API-Key (Press Y to set, anything else to skip)" -n 1 -r
-echo "\nHow to get keys? http://www.chromium.org/developers/how-tos/api-keys"
-echo ""
+echo -e "\nHow to get keys? http://www.chromium.org/developers/how-tos/api-keys"
+echo -e "\n"
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	sed -i '/GOOGLE_API_KEY/d' /sbin/session_manager_setup.sh
 	sed -i '/GOOGLE_DEFAULT_CLIENT_ID/d' /sbin/session_manager_setup.sh
