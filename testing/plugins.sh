@@ -1,7 +1,7 @@
 #!/bin/bash
 base="$(dirname "$(readlink -f "${0}")")"
 
-#amd64 only x86 might come later
+#amd64 only, srsly every CPU since 2008(Atom Diamondville) supports 64Bit :P
 if [ `uname -m` == 'x86_64' ]; then
 	chromeurl="https://dl.google.com/linux/direct/google-chrome-unstable_current_amd64.deb"
 	gtalkurl="https://googledrive.com/host/0B_2_dsXrefR-cVhtM2c4c2xYS1E/google-talk-pepper-amd64.txz"
@@ -17,15 +17,40 @@ echo "remounting rootfs"
 sleep 3
 mount -o remount, rw /
 
-#updates
-sed -i 's/http:\/\/chromebld01.test.private/http:\/\/chromebld.arnoldthebat.co.uk/g' /etc/lsb-release
-
-#remove that ugly string at the login screen
-#sed -i '/CHROMEOS_RELEASE_DESCRIPTION/d' /etc/lsb-release
-
 #creating the pepper dir and a tmpdir
 mkdir -p /opt/google/chrome/pepper
 mkdir -p "$base"/.codectmp
+
+#gapikeys to get drive working
+read -p "To use GDrive you need an API-Key (Press Y to set, anything else to skip)" -n 1 -r
+echo -e "\nHow to get keys? http://www.chromium.org/developers/how-tos/api-keys"
+echo -e "\n"
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	sed -i '/GOOGLE_API_KEY/d' /sbin/session_manager_setup.sh
+	sed -i '/GOOGLE_DEFAULT_CLIENT_ID/d' /sbin/session_manager_setup.sh
+	sed -i '/GOOGLE_DEFAULT_CLIENT_SECRET/d' /sbin/session_manager_setup.sh
+	if [ -f "$base"/.codectmp/gapikey ]; then
+		gapikey=`cat "$base"/.codectmp/gapikey`
+	else
+		read -p "Please enter your API key(for browser applications):" -r gapikey
+	fi
+	if [ -f "$base"/.codectmp/gclientid ]; then
+		gapikey=`cat "$base"/.codectmp/gclientid`
+	else
+		read -p "Please enter your Client ID(for native applications):" -r gclientid
+	fi
+	if [ -f "$base"/.codectmp/gclientsecret ]; then
+		gapikey=`cat "$base"/.codectmp/gclientsecret`
+	else
+		read -p "Please enter your Client secret(for native applications):" -r gclientsecret
+	fi
+sed -i "2iexport GOOGLE_API_KEY=$gapikey" /sbin/session_manager_setup.sh
+sed -i "3iexport GOOGLE_DEFAULT_CLIENT_ID=$gclientid" /sbin/session_manager_setup.sh
+sed -i "4iexport GOOGLE_DEFAULT_CLIENT_SECRET=$gclientsecret" /sbin/session_manager_setup.sh
+fi
+
+#updates
+sed -i 's/http:\/\/chromebld01.test.private/http:\/\/chromebld.arnoldthebat.co.uk/g' /etc/lsb-release
 
 #download ar
 if [ -f "$base"/.codectmp/ar.txz ]; then

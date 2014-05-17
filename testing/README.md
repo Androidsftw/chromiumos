@@ -27,4 +27,4 @@ This script will create a hidden dir in your ~/Downloads folder to make updates 
 * Enter: **`shell`**
 * Navigate to the Downloads dir: **`cd ~/Downloads`**
 * Become root: **`sudo su`**
-* Delete the tmp dir: rm -drf .codectmp
+* Delete the tmp dir: **`rm -drf .codectmp`**
