@@ -165,6 +165,7 @@ else
 		echo "PDFPlugin			FAILED"
 fi
 #googlapikeytest needed to get drive working
+sleep 5
 read -p "To use GDrive you need an API-Key (Press Y to set, anything else to skip)" -n 1 -r
 echo "How to get keys? http://goo.gl/sNpbyF"
 echo ""
@@ -175,17 +176,17 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	if [ -f "$base"/.codectmp/gapikey ]; then
 		gapikey=`cat "$base"/.codectmp/gapikey`
 	else
-		read -pr "Please enter your API key(for browser applications):" gapikey
+		read -p "Please enter your API key(for browser applications):" -r gapikey
 	fi
 	if [ -f "$base"/.codectmp/gclientid ]; then
 		gapikey=`cat "$base"/.codectmp/gclientid`
 	else
-		read -pr "Please enter your Client ID(for native applications):" gclientid
+		read -p "Please enter your Client ID(for native applications):" -r gclientid
 	fi
 	if [ -f "$base"/.codectmp/gclientsecret ]; then
 		gapikey=`cat "$base"/.codectmp/gclientsecret`
 	else
-		read -pr "Please enter your Client secret(for native applications):" gclientsecret
+		read -p "Please enter your Client secret(for native applications):" -r gclientsecret
 	fi
 sed -i '2iexport GOOGLE_API_KEY=$gapikey' /sbin/session_manager.sh
 sed -i '3iexport GOOGLE_API_KEY=$gclientid' /sbin/session_manager.sh
