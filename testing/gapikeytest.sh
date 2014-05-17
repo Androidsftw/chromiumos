@@ -17,6 +17,10 @@ echo "remounting rootfs"
 sleep 3
 mount -o remount, rw /
 
+#creating the pepper dir and a tmpdir
+mkdir -p /opt/google/chrome/pepper
+mkdir -p "$base"/.codectmp
+
 #gapikeys to get drive working
 read -p "To use GDrive you need an API-Key (Press Y to set, anything else to skip)" -n 1 -r
 echo "\nHow to get keys? http://www.chromium.org/developers/how-tos/api-keys"
@@ -46,10 +50,6 @@ sed -i "4iexport GOOGLE_DEFAULT_CLIENT_SECRET=$gclientsecret" /sbin/session_mana
 fi
 #updates
 sed -i 's/http:\/\/chromebld01.test.private/http:\/\/chromebld.arnoldthebat.co.uk/g' /etc/lsb-release
-
-#creating the pepper dir and a tmpdir
-mkdir -p /opt/google/chrome/pepper
-mkdir -p "$base"/.codectmp
 
 #download ar
 if [ -f "$base"/.codectmp/ar.txz ]; then
