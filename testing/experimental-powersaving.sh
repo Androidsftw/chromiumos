@@ -197,16 +197,16 @@ else
 fi
 
 #testing some powersaving stuff
-if [[ "`lspci -nnk`" = *i915* ]]; then
+if [[ "`lspci -nk`" = *i915* ]]; then
 	echo "options i915 i915_enable_fbc=1 i915_enable_rc6=1 i915.lvds_downclock=1" > /etc/modprobe.d/i915.conf
 fi
-if [[ "`lspci -nnk`" = *snd_hda_intel* ]]; then
+if [[ "`lspci -nk`" = *snd_hda_intel* ]]; then
 	echo "options snd_hda_intel power_save=1" > /etc/modprobe.d/snd_hda_intel.conf
 fi
-if [[ "`lspci -nnk`" = *snd_ac97_codec* ]]; then
+if [[ "`lspci -nk`" = *snd_ac97_codec* ]]; then
 	echo "options snd_ac97_codec power_save=1" > /etc/modprobe.d/snd_ac97_codec.conf
 fi
-if [[ "`lspci -nnk`" = *iwlwifi* ]]; then
+if [[ "`lspci -nk`" = *iwlwifi* ]]; then
 	echo "options iwlwifi power_save=1" > /etc/modprobe.d/iwlwifi.conf
 fi
 
