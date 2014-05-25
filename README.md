@@ -28,27 +28,8 @@ there should now a Flash/PDF plugin listed on **Chrome://plugins**
 #####Some other cool stuff
 * [Chromebrew](https://github.com/skycocker/chromebrew)
 
-#### Default ChromeOS Applications
-* [Calculator](https://chrome.google.com/webstore/detail/calculator/joodangkbfjnajiiifokapkpmhfnpleo)
-* [Google Keep](https://chrome.google.com/webstore/detail/google-keep/hmjkmjkepdijhoojdojkdfohbdgmmhki)
-* [Remote Desktop](https://chrome.google.com/webstore/detail/chrome-remote-desktop/gbchcmhmhahfdphkhkmpfmihenigjmpp)
-* [Camera](https://chrome.google.com/webstore/detail/camera/hfhhnacclhffhdffklopdkcgdhifgngh)
-* [G+](https://chrome.google.com/webstore/detail/google%20/dlppkpafhbajpcmmoheippocdidnckmm)
-* [Google+ Photos](https://chrome.google.com/webstore/detail/google%20-photos/efjnaogkjbogokcnohkmnjdojkikgobo)
-* [Google Drive](https://chrome.google.com/webstore/detail/google-drive/apdfllckaahabafndbhieahigkjlhalf)
-* [Google Calendar](https://chrome.google.com/webstore/detail/google-calendar/ejjicmeblgpmajnghnpcppodonldlgfn)
-* [Google Maps](https://chrome.google.com/webstore/detail/google-maps/lneaknkopdijkpnocmklfnjbeapigfbh)
-* [Google Mail](https://chrome.google.com/webstore/detail/gmail/pjkljhegncpnkpknbcohdijeoejaedia)
-* [Google Search](https://chrome.google.com/webstore/detail/google-search/coobgpohoikkiipiblmjeljniedjpjpf)
-* [Google Docs](https://chrome.google.com/webstore/detail/google-docs/aohghmighlieiainnegkcijnfilokake)
-* [Google Sheets](https://chrome.google.com/webstore/detail/google-sheets/felcaaldnbdncclmgdcncolpebgiejap)
-* [Google Slides](https://chrome.google.com/webstore/detail/google-slides/aapocclcgogkmnckokdopfmhonfmgoek)
-* [Google Store Link](https://chrome.google.com/webstore/detail/games/fobcpibfeplaikcclojfdhfdmbbeofai)
-* [YouTube](https://chrome.google.com/webstore/detail/youtube/blpcfgokakmgnkcojhhkbfbldkacnbeo)
-* [Google Play Music](https://chrome.google.com/webstore/detail/google-play-music/icppfcnhkcmnfdhfhphakoifcfokfdhg)
-* [Google Play Books](https://chrome.google.com/webstore/detail/google-play-books/mmimngoggfoobjdlefbcabngfnmieonb)
-* [Google Play Movies](https://chrome.google.com/webstore/detail/google-play-movies/fppdphmgcddhjeddoeghpjefkdlccljb)
-
-##### Other useful ChromiumOS Applications
+##### Useful ChromiumOS Applications
 * [Text](https://chrome.google.com/webstore/detail/text/mmfbcljfglbokpmkimbfghdkjmjhdgbg)
 * [Set Wallpaper](https://chrome.google.com/webstore/detail/set-image-as-wallpaper-in/lbockjjhgkknbepadjhfcilapfmebckf)
+* [Calculator](https://chrome.google.com/webstore/detail/calculator/joodangkbfjnajiiifokapkpmhfnpleo)
+* [Google Keep](https://chrome.google.com/webstore/detail/google-keep/hmjkmjkepdijhoojdojkdfohbdgmmhki)
