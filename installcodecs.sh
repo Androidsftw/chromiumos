@@ -1,4 +1,5 @@
 #!/bin/bash
+#https://github.com/sixsixfive/chromiumos
 base="$(dirname "$(readlink -f "${0}")")"
 
 #only x86, arm might come later

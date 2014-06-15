@@ -2,6 +2,15 @@ This is just a poor script for [ArnoldTheBats](http://arnoldthebat.co.uk/wordpre
 
 maybe it's useful for someone but remember it's your PC not mine ;)
 
+This script will:
+
+* install the MP3 codec
+* install the Adobe Plugins(PDF reader, Flash)
+* enable the print preview
+* enable your GoogleAPIs to get GDrive working
+
+**[Note: there is a testing script for amd64 which will enable even more stuff](https://github.com/sixsixfive/chromiumos/tree/master/testing)**
+
 ## Install
 
 * close all & open crosh: **Press CTRL+ALT+T**

@@ -1,4 +1,5 @@
 #!/bin/bash
+#https://github.com/sixsixfive/chromiumos
 base="$(dirname "$(readlink -f "${0}")")"
 
 #amd64 only, srsly every CPU since 2008(Atom Diamondville) supports 64Bit :P
