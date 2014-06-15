@@ -33,6 +33,7 @@ there should now a Flash/PDF plugin listed on **Chrome://plugins**
 * [zzsethzz](http://zzsethzz.blogspot.co.uk/p/blog-page_2456.html)
 * [dz0ny script](https://gist.github.com/dz0ny/3065781)
 * [rikels script](https://gist.github.com/rikels/4031126)
+* [MrVaykadji's script](https://github.com/MrVaykadji/misc/tree/master/ChromiumOS/mp3-flash-pdf)
 
 #####Some other cool stuff
 * [Chromebrew](https://github.com/skycocker/chromebrew)
