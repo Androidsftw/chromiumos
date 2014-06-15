@@ -21,6 +21,7 @@ mount -o remount, rw /
 
 #creating the pepper dir and a tmpdir
 mkdir -p /opt/google/chrome/pepper
+mkdir -p /usr/lib/cromo/
 mkdir -p "$base"/.codectmp
 
 #gapikeys to get drive working
@@ -112,6 +113,7 @@ echo "Installing Adobe Plugins & MP3 Codec"
 sleep 3
 #codecs
 cp "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/libffmpegsumo.so "/opt/google/chrome" -f
+cp "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/libffmpegsumo.so "/usr/lib/cromo" -f
 cp "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/libpdf.so "/opt/google/chrome" -f
 #libs?
 cp -R "$base"/.codectmp/chrome-unstable/opt/google/chrome-unstable/lib /opt/google/chrome
