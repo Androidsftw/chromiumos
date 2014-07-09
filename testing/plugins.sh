@@ -28,9 +28,9 @@ read -p "To use GDrive you need an API-Key (Press Y to set, anything else to ski
 echo -e "\nHow to get keys? http://www.chromium.org/developers/how-tos/api-keys"
 echo -e "\n"
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	sed -i '/GOOGLE_API_KEY/d' /sbin/session_manager_setup.sh
-	sed -i '/GOOGLE_DEFAULT_CLIENT_ID/d' /sbin/session_manager_setup.sh
-	sed -i '/GOOGLE_DEFAULT_CLIENT_SECRET/d' /sbin/session_manager_setup.sh
+	sed -i '/GOOGLE_API_KEY/d' /etc/chrome_dev.conf
+	sed -i '/GOOGLE_DEFAULT_CLIENT_ID/d' /etc/chrome_dev.conf
+	sed -i '/GOOGLE_DEFAULT_CLIENT_SECRET/d' /etc/chrome_dev.conf
 	if [ -f "$base"/.codectmp/gapikey ]; then
 		gapikey=`cat "$base"/.codectmp/gapikey`
 	else
@@ -38,7 +38,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 		echo "$gapikey" > "$base"/.codectmp/gapikey
 	fi
 	if [ -f "$base"/.codectmp/gclientid ]; then
-		gclienid=`cat "$base"/.codectmp/gclientid`
+		gclientid=`cat "$base"/.codectmp/gclientid`
 	else
 		read -p "Please enter your Client ID(for native applications):" -r gclientid
 		echo "$gclientid" > "$base"/.codectmp/gclientid
@@ -49,13 +49,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 		read -p "Please enter your Client secret(for native applications):" -r gclientsecret
 		echo "$gclientsecret" > "$base"/.codectmp/gclientsecret
 	fi
-sed -i "2iexport GOOGLE_API_KEY=$gapikey" /sbin/session_manager_setup.sh
-sed -i "3iexport GOOGLE_DEFAULT_CLIENT_ID=$gclientid" /sbin/session_manager_setup.sh
-sed -i "4iexport GOOGLE_DEFAULT_CLIENT_SECRET=$gclientsecret" /sbin/session_manager_setup.sh
+sed -i "2iGOOGLE_API_KEY=$gapikey" /etc/chrome_dev.conf
+sed -i "3iGOOGLE_DEFAULT_CLIENT_ID=$gclientid" /etc/chrome_dev.conf
+sed -i "4iGOOGLE_DEFAULT_CLIENT_SECRET=$gclientsecret" /etc/chrome_dev.conf
 fi
-
-#updates
-sed -i 's/http:\/\/chromebld01.test.private/http:\/\/chromebld.arnoldthebat.co.uk/g' /etc/lsb-release
 
 #download ar
 if [ -f "$base"/.codectmp/ar.txz ]; then
@@ -192,9 +189,9 @@ fi
 if [ -f /opt/google/chrome/libpdf.so ]; then
 		echo "PDFPlugin			OK"
 		echo "enabling Chrome Print preview"
-		sed -i 's/\${DEVELOPER_MODE_FLAG}/\${DEVELOPER_MODE_FLAG} \\/g' /sbin/session_manager_setup.sh
+		sed -i 's/\${DEVELOPER_MODE_FLAG}/\${DEVELOPER_MODE_FLAG} \\/g' /etc/chrome_dev.conf
 		#http://peter.sh/experiments/chromium-command-line-switches/
-		echo -e "\t\t\t--enable-print-preview" >>/sbin/session_manager_setup.sh
+		echo -e "\t\t\t--enable-print-preview" >>/etc/chrome_dev.conf
 else
 		echo "PDFPlugin			FAILED"
 fi
